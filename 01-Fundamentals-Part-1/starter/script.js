@@ -97,6 +97,7 @@ console.log(age)
 
 /* Write your code below. Good luck! 🙂 */
 
+/*
 function whoWins(scoreDolphins, scoreKoalas) {
     if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
         console.log("Dolphins win the trophy");
@@ -125,5 +126,74 @@ console.log(`third data`)
 scoreDolphins = (97 + 112 + 101) / 3;
 scoreKoalas = (109 + 95 + 106) / 3;
 whoWins(scoreDolphins, scoreKoalas)
+*/
+
+/*
+
+const dzien = "Niedzi"
+
+switch (dzien) {
+    case "Poniedziałek":
+        console.log("Struktura kursu");
+        console.log("Iść na meetup kodowania");
+        break;
+    case "Wtorek":
+        console.log("Przygotować materiały do nauki")
+        break;
+    case "Środa":
+        console.log("Zacząć się uczyć");
+        break;
+    case "Czwartek":
+        console.log("Podsumować wiedzę i zrobić powtórke");
+        break;
+    case "Piątek":
+        console.log("Przyjść na egzamin i zaliczyć");
+        break;
+    case "Sobota":
+    case "Niedziela":
+        console.log("A w weekend odpoczywam!")
+        break;
+    default:
+        console.log("Nieprawidłowa data")
+}
+
+if (dzien === "Poniedziałek") {
+    console.log("Struktura kursu");
+    console.log("Iść na meetup kodowania");
+} else if (dzien === "Wtorek") {
+    console.log("Przygotować materiały do nauki")
+} else if (dzien === "Środa") {
+    console.log("Zacząć się uczyć");
+} else if (dzien === "Czwartek") {
+    console.log("Podsumować wiedzę i zrobić powtórke");
+} else if (dzien === "Piątek") {
+    console.log("Przyjść na egzamin i zaliczyć");
+} else if (dzien === "Sobota" || dzien === "Niedziela") {
+    console.log("A w weekend odpoczywam!");
+} else {
+    console.log("Nieprawidłowa data");
+}
+
+*/
+
+// if (age === 24) console.log("Wow masz 24 lata")
 
 
+/*
+const age = 23;
+age >= 18 ? console.log("I like to drink wine") : console.log("I like to drink water");
+
+const drink = age >= 18 ? "🍷" : "🥛";
+console.log(drink)
+
+console.log(`I like to drink ${age >= 18 ? "🍷" : "🥛"}`)
+console.log(drink)
+*/
+
+const bill = 430;
+
+/* Write your code below. Good luck! 🙂 */
+
+let tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}.`)
