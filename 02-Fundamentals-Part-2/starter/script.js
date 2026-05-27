@@ -41,6 +41,7 @@ console.log(calcAge1(2002), calcAge2(2002));
 */
 
 //Arrow Function
+/*
 const calcAge3 = birthYear => 2037 - birthYear;
 
 console.log(calcAge3(2002));
@@ -53,3 +54,91 @@ const lataDoEmerytury = (birthYear, name) => {
 
 console.log(lataDoEmerytury(2002, "Filip"))
 console.log(lataDoEmerytury(1996, "Gabrysia")) 
+*/
+/*
+function cutFruitPieces(fruit) {
+    return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges`;
+    return juice;
+}
+
+console.log(fruitProcessor(5, 3))
+*/
+// Przepisze te funkcję do array
+/*
+const cutFruitPieces = fruit => fruit * 4
+
+
+const fruitProcessor = (apples, oranges) => {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+
+    const Juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+
+    return Juice
+}
+
+console.log(fruitProcessor(4, 3))
+*/
+/*
+const cutFruitPieces = fruit => fruit * 4;
+
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+    return juice;
+}
+
+console.log(fruitProcessor(4, 3));
+*/
+/*
+const calcAge = birthYear => 2037 - birthYear;
+
+const calcEmerytura = age => 65 - age;
+
+function lataDoEmerytury(birthYear, name) {
+    const age = calcAge(birthYear);
+    const emerytura = calcEmerytura(age);
+
+    return emerytura > 0 ? emerytura : -1 //ternery
+    /*
+    if (emerytura > 0) {
+        return emerytura
+    }
+
+    return -1
+
+
+}
+
+console.log(lataDoEmerytury(1960, "Filip"))
+console.log(lataDoEmerytury(2002, "Filip"))
+
+    */
+
+/* Challange #1 */
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+const scoreDolphins = calcAverage(44, 23, 71);
+const scoreKoalas = calcAverage(65, 54, 49);
+
+function checkWinner(avgDolphins, avgKoalas) {
+    if (avgDolphins >= avgKoalas * 2) {
+        console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas >= avgDolphins * 2) {
+        console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+    } else {
+        console.log("No team wins...");
+    }
+}
+
+checkWinner(scoreDolphins, scoreKoalas);
