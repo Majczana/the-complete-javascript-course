@@ -179,7 +179,7 @@ const age3 = (calcAge(years[years.length - 1]));
 const ages = [age1, age2, age3]
 console.log(ages)
 */
-
+/*
 const friends = ["Blazej", "Kiniu", "Ola", "Ala"];
 
 // Dodawanie elementów do tablicy
@@ -208,3 +208,35 @@ const guest = "Kiniu"
 const onList = friends.includes(guest) ? `${guest} are on list` : `${guest} are not on the list`;
 
 console.log(onList)
+*/
+
+// Zadanie 
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [125, 555, 44];
+const tips = [];
+
+/*
+function calcTip (bill) {
+    if (bill >= 50 && bill <= 300){
+        return bill * 0.15;
+    }else {
+        return bill * 0.20;
+    }
+}
+*/
+const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+
+const sumTotalBill = billNumber => calcTip(bills[billNumber]) + bills[billNumber] ;
+
+tips.push(calcTip(bills[0]));
+tips.push(calcTip(bills[1]));
+tips.push(calcTip(bills[2]));
+console.log(tips);
+
+const totals = [];
+totals.push(sumTotalBill(0));
+totals.push(sumTotalBill(1));
+totals.push(sumTotalBill(2));
+console.log(totals);
+
