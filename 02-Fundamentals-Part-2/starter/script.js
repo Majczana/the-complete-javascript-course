@@ -53,7 +53,7 @@ const lataDoEmerytury = (birthYear, name) => {
 }
 
 console.log(lataDoEmerytury(2002, "Filip"))
-console.log(lataDoEmerytury(1996, "Gabrysia")) 
+console.log(lataDoEmerytury(1996, "Gabrysia"))
 */
 /*
 function cutFruitPieces(fruit) {
@@ -126,6 +126,7 @@ console.log(lataDoEmerytury(2002, "Filip"))
 
 /* Challange #1 */
 
+/*
 const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
 const scoreDolphins = calcAverage(44, 23, 71);
@@ -142,3 +143,68 @@ function checkWinner(avgDolphins, avgKoalas) {
 }
 
 checkWinner(scoreDolphins, scoreKoalas);
+
+*/
+/*
+const friends = ["Blazej", "Kiniu", "Ola", "Ala"]; // Domyślny sposób
+
+console.log(friends);
+// const years = new Array(100, 200, 300) // stary sposób
+console.log(friends[1])
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+
+friends[2] = "Szitsu"
+console.log(friends);
+
+// friends = ["Bob", "Marley"] // jak jest const to nie możemy zmieniać całej tablicy, ale możemy ją edytować tak jak wyżej.
+
+const firstName = "Jonas";
+const Jonas = [firstName, "Schmedtmann", 1505 - 5, "Teacher", friends];
+
+console.log(Jonas)
+
+// Zadanie
+*/
+/*
+const calcAge = birthYear => 2037 - birthYear;
+
+const years = [1990, 1967, 2000, 2012, 2018];
+
+const age1 = (calcAge(years[0]));
+const age2 = (calcAge(years[1]));
+const age3 = (calcAge(years[years.length - 1]));
+
+const ages = [age1, age2, age3]
+console.log(ages)
+*/
+
+const friends = ["Blazej", "Kiniu", "Ola", "Ala"];
+
+// Dodawanie elementów do tablicy
+
+friends.push("Szits"); // dodaj na końcu
+friends.unshift("Kuba") // dodaj na początku
+console.log(friends);
+
+// Odejmowanie elementów z tablicy
+
+friends.pop(); // usuwanie ostatniej
+const popped = friends.pop();
+console.log(friends);
+console.log(popped);
+
+friends.shift() // Usuwanie pierwszej
+console.log(friends);
+
+
+console.log(friends.indexOf("Blazej"))
+
+console.log(friends.includes("Ola"))
+
+const guest = "Kiniu"
+
+const onList = friends.includes(guest) ? `${guest} are on list` : `${guest} are not on the list`;
+
+console.log(onList)
