@@ -257,3 +257,8 @@ console.log(filip["lastName"])
 const nameKey = "Name"
 console.log(filip["first" + nameKey])
 console.log(filip["last" + nameKey])
+
+const property = "elo";
+
+filip[property] ? console.log(filip[property]) : console.log("Brak danych");
+
