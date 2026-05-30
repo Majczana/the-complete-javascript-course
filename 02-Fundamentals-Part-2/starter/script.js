@@ -250,7 +250,7 @@ const filip = {
     birthYear: 2002,
     friends: ["Blazej", "Kiniu", "Ola", "Ala"],
 }; // literal syntax
-
+/*
 console.log(filip.firstName)
 console.log(filip["lastName"])
 
@@ -262,3 +262,42 @@ const property = "elo";
 
 filip[property] ? console.log(filip[property]) : console.log("Brak danych");
 
+filip.location = "Poland";
+filip["city"] = "Warta";
+
+console.log(filip);
+*/
+
+// Challange
+//console.log(`${filip["firstName"]} has ${filip.friends.length}, and his best friend is called ${filip.friends[3]}`);
+/*
+const ala = {
+    firstName: "Alicja",
+    lastName: "Patora",
+    birthYear: 2002,
+    job: "Influencer",
+    friends: ["Filip", "Ola", "Błażej"],
+    hasDriverLicense: true,
+
+    calcAge: function(birthYear){
+        return 2026 - birthYear;
+    }
+}
+
+console.log(ala.calcAge(ala.birthYear))
+*/
+
+const ala = {
+    firstName: "Alicja",
+    lastName: "Patora",
+    birthYear: 2002,
+    job: "Influencer",
+    friends: ["Filip", "Ola", "Błażej"],
+    hasDriverLicense: true,
+
+    calcAge: function() {
+        return 2026 - this.birthYear; // this. odwołuje się do elementu w jakim jesteśmy. Czyli coś może się odnosić do obiektu w jakim jest.
+    }
+}
+
+console.log(ala.calcAge());
