@@ -225,6 +225,7 @@ function calcTip (bill) {`
     }
 }
 */
+/*
 const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
 
 const sumTotalBill = billNumber => calcTip(bills[billNumber]) + bills[billNumber] ;
@@ -239,4 +240,25 @@ totals.push(sumTotalBill(0));
 totals.push(sumTotalBill(1));
 totals.push(sumTotalBill(2));
 console.log(totals);
+
+*/
+
+const filip = {
+    firstName: "Filip",
+    lastName: "Majewski",
+    age: 2026 - 2002,
+    birthYear: 2002,
+    friends: ["Blazej", "Kiniu", "Ola", "Ala"],
+}; // literal syntax
+
+console.log(filip.firstName)
+console.log(filip["lastName"])
+
+const nameKey = "Name"
+console.log(filip["first" + nameKey])
+console.log(filip["last" + nameKey])
+
+const property = "elo";
+
+filip[property] ? console.log(filip[property]) : console.log("Brak danych");
 
