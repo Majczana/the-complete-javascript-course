@@ -217,7 +217,7 @@ const bills = [125, 555, 44];
 const tips = [];
 
 /*
-function calcTip (bill) {
+function calcTip (bill) {`
     if (bill >= 50 && bill <= 300){
         return bill * 0.15;
     }else {
