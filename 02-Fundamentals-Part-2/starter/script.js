@@ -389,15 +389,15 @@ console.log(types);
 
 //continue and brake
 
-const jonas = [
-    "Jonas",
-    12,
-    "Schmedtmann", 
-    2037 - 2002, 
-    "Teacher", 
-    ["Michael", "Peter", "Steven"]
-];
-
+// const jonas = [
+//     "Jonas",
+//     12,
+//     "Schmedtmann", 
+//     2037 - 2002, 
+//     "Teacher", 
+//     ["Michael", "Peter", "Steven"]
+// ];
+/*
 const types = [];
 console.log("--- CONTINUE ---")
 for (let i = 0; i < jonas.length ; i++){
@@ -416,3 +416,67 @@ for (let i = 0; i < jonas.length ; i++){
     console.log(jonas[i])
 //  types[i] = typesof jonas[i];
 }
+
+*/
+
+// for(let i = jonas.length - 1; i >= 0; i--){
+//     console.log(i, jonas[i])
+// }
+/*
+for(let exercise = 1; exercise < 4; exercise++){
+    console.log(`-------- Starting exercise ${exercise}`)
+    for(let rep = 1; rep < 11; rep++){
+        console.log(`rep ${rep}`)
+    }
+}
+
+
+ for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️`)
+}
+let rep = 0
+console.log("---- while ----")
+while(rep < 10){
+    rep++
+    console.log(`Lifting weights repetition ${rep} 🏋️`)
+}
+
+*/
+
+/*
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while(dice !== 6){
+    dice = Math.trunc(Math.random() * 6) + 1;
+    console.log(`You rolled a ${dice}`);
+    if (dice === 6) console.log("Loop is about to end...")
+}
+*/
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+// Iterowanie po wszystich rachunkach
+for (let bill = 0; bill < bills.length; bill++){
+    const tip = calcTip(bills[bill])
+    tips.push(tip)
+    totals.push(tip + bills[bill])
+}
+
+const calcAverage = arr => {
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i]
+    }
+    return sum / arr.length
+}
+
+console.log(bills, tips, totals)
+console.log(calcAverage(totals))
