@@ -317,7 +317,7 @@ const ala = {
 
 
 /* Write your code below. Good luck! 🙂 */
-
+/*
 const mark = {
     fullName: "Mark Miller",
     mass: 78,
@@ -335,9 +335,9 @@ const mark = {
 }
 
 const john = {
-    fullName: "John Smith",;
-    mass: 92,;
-    height: 1.95,;
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
     calcBMI: function(){
         this.bmi = (this.mass / (this.height * this.height));
         return this.bmi;
@@ -348,3 +348,71 @@ const john = {
 }
 
 mark.calcBMI() > john.calcBMI() ? console.log(mark.summaryBMI()) : console.log(john.summaryBMI());
+*/
+
+//Loops, for, while
+/*
+ for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️`)
+}
+let rep = 0
+*/
+
+/*
+const jonas = [
+    "Jonas", 
+    "Schmedtmann", 
+    1505 - 5, 
+    "Teacher", 
+    ["Michael", "Peter", "Steven"]
+];
+
+const types = [];
+
+for (let i = 0; i < jonas.length ; i++){
+    console.log(jonas[i]);
+
+    types.push(typeof jonas[i]);
+//  types[i] = typesof jonas[i];
+}
+console.log(types);
+
+*/
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++){
+//     ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+//continue and brake
+
+const jonas = [
+    "Jonas",
+    12,
+    "Schmedtmann", 
+    2037 - 2002, 
+    "Teacher", 
+    ["Michael", "Peter", "Steven"]
+];
+
+const types = [];
+console.log("--- CONTINUE ---")
+for (let i = 0; i < jonas.length ; i++){
+    if(typeof jonas[i] !== "string") continue;
+
+    types.push(typeof jonas[i]);
+    console.log(jonas[i])
+//  types[i] = typesof jonas[i];
+}
+
+console.log("--- BREAK ---")
+for (let i = 0; i < jonas.length ; i++){
+    if(typeof jonas[i] === "number") break;  
+
+    types.push(typeof jonas[i]);
+    console.log(jonas[i])
+//  types[i] = typesof jonas[i];
+}
