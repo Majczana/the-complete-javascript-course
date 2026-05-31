@@ -213,8 +213,8 @@ console.log(onList)
 // Zadanie 
 /* Write your code below. Good luck! 🙂 */
 
-const bills = [125, 555, 44];
-const tips = [];
+// const bills = [125, 555, 44];
+// const tips = [];
 
 /*
 function calcTip (bill) {`
@@ -243,13 +243,13 @@ console.log(totals);
 
 */
 
-const filip = {
-    firstName: "Filip",
-    lastName: "Majewski",
-    age: 2026 - 2002,
-    birthYear: 2002,
-    friends: ["Blazej", "Kiniu", "Ola", "Ala"],
-}; // literal syntax
+// const filip = {
+//     firstName: "Filip",
+//     lastName: "Majewski",
+//     age: 2026 - 2002,
+//     birthYear: 2002,
+//     friends: ["Blazej", "Kiniu", "Ola", "Ala"],
+// }; // literal syntax
 /*
 console.log(filip.firstName)
 console.log(filip["lastName"])
@@ -286,7 +286,7 @@ const ala = {
 
 console.log(ala.calcAge(ala.birthYear))
 */
-
+/*
 const ala = {
     firstName: "Alicja",
     lastName: "Patora",
@@ -296,8 +296,55 @@ const ala = {
     hasDriverLicense: true,
 
     calcAge: function() {
+        this.age = 2037 - this.birthYear;
+        return this.age
+    },
+
+    getSummary: function() {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and she ${this.hasDriverLicense ? "has driver license🟢" : "doesn't have a driver's license🔴"}`
+    }
+    /*
+    calcAge: function() {
         return 2026 - this.birthYear; // this. odwołuje się do elementu w jakim jesteśmy. Czyli coś może się odnosić do obiektu w jakim jest.
+    }
+*/
+
+// console.log(ala.calcAge());
+// console.log(ala.age);
+//console.log(ala.getSummary())
+
+
+
+
+/* Write your code below. Good luck! 🙂 */
+
+const mark = {
+    fullName: "Mark Miller",
+    mass: 78,
+    height: 1.69,
+    
+    calcBMI: function(){
+        this.bmi = (this.mass / (this.height * this.height))
+        return this.bmi
+    },
+    
+    summaryBMI: function(){
+        return `${this.fullName} BMI (${this.bmi}) is higher than ${john.fullName} (${john.bmi})!`
+    }
+    
+}
+
+const john = {
+    fullName: "John Smith",;
+    mass: 92,;
+    height: 1.95,;
+    calcBMI: function(){
+        this.bmi = (this.mass / (this.height * this.height));
+        return this.bmi;
+    },
+    summaryBMI: function(){
+        return `${this.fullName} BMI (${this.bmi}) is higher than ${mark.fullName} (${mark.bmi})!`;
     }
 }
 
-console.log(ala.calcAge());
+mark.calcBMI() > john.calcBMI() ? console.log(mark.summaryBMI()) : console.log(john.summaryBMI());
