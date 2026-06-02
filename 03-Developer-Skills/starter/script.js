@@ -61,6 +61,7 @@ console.log(reverse(6));
 
 console.log();
 */
+/*
 const temperatures1 = [70, -2, -6, -90, "error", 9, 13, 17, 15, 14, 9, 5];
 
 const temperatures2 = [2, -5, -6, -9, "error", 12, 13, 17, 15, 5, -20, 60];
@@ -99,3 +100,18 @@ function calcAmplitude(array1, array2) {
 }
 
 console.log(calcAmplitude(temperatures1, temperatures2));
+/*
+
+const mesureKelvin = () => {
+  const measurement = {
+    type: "temp",
+    unit: "celsius",
+    value: "15",
+  };
+
+  const kelvin = Number(measurement.value) + 273;
+  return kelvin;
+};
+
+console.log(mesureKelvin());
+*/
