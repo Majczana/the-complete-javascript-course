@@ -19,6 +19,8 @@ console.log();
 // console.log("siemano kolano");
 
 // Osobna funkcja na odwracanie danych
+
+/*
 const revString = (value) => {
   let i = 1;
   const letter = [];
@@ -58,3 +60,42 @@ console.log(reverse(12) - reverse(11));
 console.log(reverse(6));
 
 console.log();
+*/
+const temperatures1 = [70, -2, -6, -90, "error", 9, 13, 17, 15, 14, 9, 5];
+
+const temperatures2 = [2, -5, -6, -9, "error", 12, 13, 17, 15, 5, -20, 60];
+
+//Ignorowanie błędów pomiarowych
+// Znaleźć najniższą i najwyższą wartość
+// Odjąć min od max
+
+const mergeArray = (array1, array2) => array1.concat(array2);
+
+const delErrors = (array) => {
+  const clearArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] != "number") {
+      continue;
+    } else {
+      clearArray.push(array[i]);
+    }
+  }
+  return clearArray;
+};
+
+function calcAmplitude(array1, array2) {
+  const cleanArray = delErrors(mergeArray(array1, array2));
+  let max = cleanArray[0];
+  let min = cleanArray[0];
+  for (let i = 0; i < cleanArray.length; i++) {
+    if (cleanArray[i] > max) {
+      max = cleanArray[i];
+    }
+    if (cleanArray[i] < min) {
+      min = cleanArray[i];
+    }
+  }
+  return [max - min, max, min];
+}
+
+console.log(calcAmplitude(temperatures1, temperatures2));
