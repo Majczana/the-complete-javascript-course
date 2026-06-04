@@ -115,3 +115,90 @@ const mesureKelvin = () => {
 
 console.log(mesureKelvin());
 */
+
+/*
+Coding Challenge #1
+Mając tablicę prognozowanych maksymalnych temperatur, termometr wyświetla ciąg znaków z tymi temperaturami.
+Przykład: [17, 21, 23] wypisze "... 17ºC in 1 days ... 21ºC in 2 days ... 23ºC in 3 days ..."
+Stwórz funkcję printForecast, która przyjmuje tablicę arr i loguje do konsoli ciąg znaków jak powyższy.
+Użyj frameworku do rozwiązywania problemów: zrozum problem i podziel go na mniejsze podproblemy!
+DANE TESTOWE 1: [17, 21, 23]
+DANE TESTOWE 2: [12, 5, -5, 0, 4]
+*/
+
+// Jak iterować po liście z temperaturami?
+// TO-DO
+// [x] Deklaracja funkcji
+// [x] Pętla for która będzie iterować po całej długości tabeli.
+// [x] Liczenie który jest to dzień z kolei
+// [x] Wstawienie temperatury do odpowiedniego dnia
+// [x] Wyświetlanie komunikatu w konsolii
+// [x]Wypisać liczby w jednym wierszu
+
+// const temps1 = [17, 21, 23];
+// const temps2 = [12, 5, -5, 0, 4];
+/*
+function printForecast(arr) {
+  const tempDays = [];
+  for (let i = 0; i < arr.length; i++) {
+    tempDays.push(`${arr[i]}°C in ${i + 1} days ...`);
+  }
+  console.log("...", ...tempDays);
+}
+
+printForecast(temps2);
+*/
+//Napisane z autocomplete:
+/*
+const printForecast = (arr) => {
+  let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}°C in ${i + 1} days ...`;
+  }
+  console.log("...", str);
+};
+
+printForecast(temps1);
+printForecast(temps2);
+*/
+
+const testData = [12, 9.5, 8, 6.5, 0, 8.5, 4, 16];
+
+const sumArray = (array) => {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+};
+
+const averageArray = (array) => {
+  const average = sumArray(array) / array.length;
+  return average;
+};
+
+const maxArray = (array) => {
+  let max = array[0];
+  let day = 1;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+      day = i + 1;
+    }
+  }
+  return { max, day };
+};
+
+const analyzeWorkWeek = (array) => {
+  const totalHours = sumArray(array);
+  const weekData = {
+    totalHoursWorked: totalHours,
+    averageDailyHours: averageArray(array),
+    mostHoursDay: maxArray(array),
+    numberOfDaysWorked: array.length,
+    isWeekFullTime: totalHours >= 35,
+  };
+  return weekData;
+};
+
+console.log(analyzeWorkWeek(testData).mostHoursDay.day);
