@@ -11,49 +11,60 @@ const diceEL = document.querySelector('.dice');
 const activePlayer0El = document.querySelector('.player--0');
 const activePlayer1El = document.querySelector('.player--1');
 
-diceEL.classList.add('hidden');
-score0El.textContent = 0;
-score1El.textContent = 0;
+let totalScore, activePlayer, dice, currentScore, playing;
+
+const init = () => {
+  totalScore = { player0: 0, player1: 0 };
+  activePlayer = 0;
+  dice = 0;
+  currentScore = 0;
+  playing = true;
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0.textContent = 0;
+  current1.textContent = 0;
+  diceEL.classList.add('hidden');
+  activePlayer0El.classList.add('player--active');
+  activePlayer1El.classList.remove('player--active');
+  activePlayer0El.classList.remove('player--winner');
+  activePlayer1El.classList.remove('player--winner');
+};
+
+const switchPlayer = () => {
+  activePlayer === 0
+    ? (current0.textContent = currentScore)
+    : (current1.textContent = currentScore);
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  activePlayer0El.classList.toggle('player--active');
+  activePlayer1El.classList.toggle('player--active');
+};
 
 const getRandom = () => Math.floor(Math.random() * 6 + 1);
 
-const totalScore = { player0: 0, player1: 0 };
-let activePlayer = 0;
-let dice = 0;
-let currentScore = 0;
+init();
 
 const roundstart = () => {
-  if (totalScore.player0 >= 100) {
-    BtnHold.classList.add('hidden');
-    BtnRollDice.classList.add('hidden');
-  } else if (totalScore.player1 >= 100) {
-    BtnHold.classList.add('hidden');
-    BtnRollDice.classList.add('hidden');
-  }
-  // generowanie randomowej liczby
-  dice = getRandom();
+  if (playing) {
+    // generowanie randomowej liczby
+    dice = getRandom();
 
-  // pokazywanie kostyki
-  diceEL.classList.remove('hidden');
+    // pokazywanie kostyki
+    diceEL.classList.remove('hidden');
 
-  // Zmiana pozycji kostki
-  diceEL.src = `dice-${dice}.png`;
+    // Zmiana pozycji kostki
+    diceEL.src = `dice-${dice}.png`;
 
-  // Logika punktów i gry
+    // Logika punktów i gry
 
-  if (dice !== 1) {
-    currentScore += dice;
-    activePlayer === 0
-      ? (current0.textContent = currentScore)
-      : (current1.textContent = currentScore);
-  } else {
-    currentScore = 0;
-    activePlayer === 0
-      ? (current0.textContent = currentScore)
-      : (current1.textContent = currentScore);
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    activePlayer0El.classList.toggle('player--active');
-    activePlayer1El.classList.toggle('player--active');
+    if (dice !== 1) {
+      currentScore += dice;
+      activePlayer === 0
+        ? (current0.textContent = currentScore)
+        : (current1.textContent = currentScore);
+    } else {
+      currentScore = 0;
+      switchPlayer();
+    }
   }
 };
 
@@ -68,11 +79,28 @@ BtnHold.addEventListener('click', function () {
       ? (score0El.textContent = totalScore.player0)
       : (score1El.textContent = totalScore.player1);
     currentScore = 0;
-    activePlayer === 0
-      ? (current0.textContent = currentScore)
-      : (current1.textContent = currentScore);
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    activePlayer0El.classList.toggle('player--active');
-    activePlayer1El.classList.toggle('player--active');
+    if (totalScore.player0 >= 100) {
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      diceEL.classList.add('hidden');
+      playing = false;
+    } else if (totalScore.player1 >= 100) {
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      diceEL.classList.add('hidden');
+      playing = false;
+    } else {
+      switchPlayer();
+    }
   }
 });
+
+BtnNewGame.addEventListener('click', init);
