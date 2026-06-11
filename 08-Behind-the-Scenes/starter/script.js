@@ -143,17 +143,63 @@
 // jonas.calcAge();
 
 //Działa dla deklarowanej funkcji też działa.
-const addExpr = function (a, b) {
-  console.log(arguments);
-  return a + b;
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+
+// addExpr(2, 5, 6, 3);
+
+// //nie działa dla funkcji arrow
+// const addArrow = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+
+// addArrow(2, 5, 8);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
 
-addExpr(2, 5, 6, 3);
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
 
-//nie działa dla funkcji arrow
-const addArrow = (a, b) => {
-  console.log(arguments);
-  return a + b;
+// const marriedJessica = jessica;
+// marriedJessica.lastName = 'Davis';
+
+const marriedJessica = marryPerson(jessica, 'Davis');
+
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
 };
 
-addArrow(2, 5, 8);
+// Shallow copy
+const jessicaCopy = { ...jessica2 };
+jessicaCopy.lastName = 'Davis';
+
+// console.log(jessica2);
+// console.log(jessicaCopy);
+
+// jessicaCopy.family.push('Mary');
+// jessicaCopy.family.push('John');
+
+// console.log('Before', jessica2);
+// console.log('After', jessicaCopy);
+
+// Deep copy/clone
+
+const jessicaClone = structuredClone(jessica2);
+
+jessicaClone.family.push('Mary');
+jessicaClone.family.push('John');
+
+console.log('oryginal', jessica2);
+console.log('clone', jessicaClone);
