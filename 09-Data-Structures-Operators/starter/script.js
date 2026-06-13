@@ -603,3 +603,40 @@ const game = {
     team2: 6.5,
   },
 };
+//zadanie 1
+const [players1, players2] = game.players;
+
+console.log(game.players);
+//zadanie2
+const [gk, ...fieldPlayers] = players1;
+
+console.log(gk, fieldPlayers);
+//zadanie3
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//zadanie 4The team with the lower odd is more likely to win. Print to the console which
+
+const playerFinals = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(playerFinals);
+//Zadanie5
+console.log(game);
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//zadanie6
+const printGoals = (...players) => {
+  for (let i = 0; i < players.length; i++) {
+    console.log(players[i]);``
+  }
+  console.log(players.length);
+};
+printGoals(...game.scored);
+
+//zadanie7
+
+team1 < team2 && console.log(game.team1);
+team2 < team1 && console.log(game.team2);

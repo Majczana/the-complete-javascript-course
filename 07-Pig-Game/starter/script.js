@@ -79,7 +79,7 @@ BtnHold.addEventListener('click', function () {
       ? (score0El.textContent = totalScore.player0)
       : (score1El.textContent = totalScore.player1);
     currentScore = 0;
-    if (totalScore.player0 >= 100) {
+    if (totalScore.player0 >= 20) {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
@@ -88,7 +88,7 @@ BtnHold.addEventListener('click', function () {
         .classList.remove('player--active');
       diceEL.classList.add('hidden');
       playing = false;
-    } else if (totalScore.player1 >= 100) {
+    } else if (totalScore.player1 >= 20) {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
