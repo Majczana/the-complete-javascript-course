@@ -299,6 +299,7 @@
 // console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 
 // Data needed for a later exercise
+
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
@@ -320,6 +321,23 @@ const mexicanFoods = new Set([
   'garlic',
 ]);
 
+// const weekdays = ['pon', 'wt', 'śr', 'czw', 'pią', 'sob', 'nied'];
+
+const openingHours = {
+  mon: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -328,7 +346,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
@@ -343,31 +361,73 @@ const restaurant = {
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delicius pasta with ${ing1}, ${ing2} and ${ing3}`,
     );
   },
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  //ES6 enha
+  openingHours,
 };
+
+// for (const day of Object.keys(openingHours)) {
+//   console.log(day);
+// }
+
+// const keys = Object.keys(openingHours);
+// const values = Object.values(openingHours);
+// const entries = Object.entries(openingHours);
+
+// for (const i of keys) {
+//   console.log(i);
+// }
+// for (const i of values) {
+//   console.log(i);
+// }
+// for (const [day, { open, close }] of entries) {
+//   console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
+
+// // console.log(restaurant.openingHours.mon?.open.here.elo.elo);
+
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+
+// // Methods
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exists');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
+
+// // Array
+
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'jonas@gmail.com',
+//     phone: '573567643',
+//   },
+// ];
+// console.log(users[0]?.name ?? 'There is no user with this name');
+// console.log(users[1]?.name ?? 'There is no user with this name');
+
+// //Example
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// // Loop for of
+// for (const item of menu) console.log(item);
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
 
 // restaurant.numGuests = 0;
 // const guest = restaurant.numGuests ?? 10;
@@ -603,40 +663,85 @@ const game = {
     team2: 6.5,
   },
 };
-//zadanie 1
-const [players1, players2] = game.players;
+// //zadanie 1
+// const [players1, players2] = game.players;
 
-console.log(game.players);
-//zadanie2
-const [gk, ...fieldPlayers] = players1;
+// console.log(game.players);
+// //zadanie2
+// const [gk, ...fieldPlayers] = players1;
 
-console.log(gk, fieldPlayers);
-//zadanie3
+// console.log(gk, fieldPlayers);
+// //zadanie3
 
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-//zadanie 4The team with the lower odd is more likely to win. Print to the console which
+// //zadanie 4The team with the lower odd is more likely to win. Print to the console which
 
-const playerFinals = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(playerFinals);
-//Zadanie5
-console.log(game);
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(team1, draw, team2);
+// const playerFinals = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(playerFinals);
+// //Zadanie5
+// console.log(game);
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
 
-//zadanie6
-const printGoals = (...players) => {
-  for (let i = 0; i < players.length; i++) {
-    console.log(players[i]);``
-  }
-  console.log(players.length);
-};
-printGoals(...game.scored);
+// //zadanie6
+// const printGoals = (...players) => {
+//   for (let i = 0; i < players.length; i++) {
+//     console.log(players[i]);``
+//   }
+//   console.log(players.length);
+// };
+// printGoals(...game.scored);
 
-//zadanie7
+// //zadanie7
 
-team1 < team2 && console.log(game.team1);
-team2 < team1 && console.log(game.team2);
+// team1 < team2 && console.log(game.team1);
+// team2 < team1 && console.log(game.team2);
+
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+}
+
+let sum = 0;
+for (const i of Object.values(game.odds)) {
+  sum += i;
+}
+console.log(sum / Object.values(game.odds).length);
+
+for (const [team, average] of Object.entries(game.odds)) {
+  game[team]
+    ? console.log(`Odd of victory ${game[team]}: ${average}`)
+    : console.log(`Odd of draw: ${average}`);
+}
+console.log('--------------------------------');
+const scorers = {};
+
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+
+// // Methods
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exists');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
+
+// // Array
+
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'jonas@gmail.com',
+//     phone: '573567643',
+//   },
+// ];
+// console.log(users[0]?.name ?? 'There is no user with this name');
+// console.log(users[1]?.name ?? 'There is no user with this name');
