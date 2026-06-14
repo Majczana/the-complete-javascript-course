@@ -891,19 +891,122 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-// 1
-const events = [...new Set(gameEvents.values())];
-console.log(events);
-// 2
-gameEvents.delete(64);
-console.log(gameEvents);
-// 3
-// const time = [...gameEvents.keys()].pop(); // Trik
-const eventsAverage = 90 / gameEvents.size;
-console.log(`An event happened, on avarage, every ${eventsAverage} minutes `);
+// // 1
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+// // 2
+// gameEvents.delete(64);
+// console.log(gameEvents);
+// // 3
+// // const time = [...gameEvents.keys()].pop(); // Trik
+// const eventsAverage = 90 / gameEvents.size;
+// console.log(`An event happened, on avarage, every ${eventsAverage} minutes `);
 
-// 4
-for (const [time, event] of gameEvents) {
-  const half = time <= 45 ? 'FIRST HALF' : 'SECOND HALF';
-  console.log(`[${half}] ${time}: ${event}`);
+// // 4
+// for (const [time, event] of gameEvents) {
+//   const half = time <= 45 ? 'FIRST HALF' : 'SECOND HALF';
+//   console.log(`[${half}] ${time}: ${event}`);
+// }
+
+const airlane = 'TAP Air Portugal';
+const plane = 'A320';
+
+// for (const i of plane) console.log(i);
+
+// console.log(airlane.length);
+// console.log(airlane.indexOf('r'));
+// console.log(airlane.lastIndexOf('r'));
+// console.log(airlane.indexOf('Portugal'));
+// console.log(airlane.indexOf('portugal'));
+
+// console.log(airlane.slice(4));
+// console.log(airlane.slice(4, 7));
+
+// console.log(airlane.slice(0, airlane.indexOf(' ')));
+// console.log(airlane.slice(airlane.lastIndexOf(' ') + 1));
+// console.log(airlane.slice(-2));
+// console.log(airlane.slice(1 - 1));
+
+// const checkMiddleSeat = seat => {
+//   const s = seat.slice(-1);
+//   const isMiddle = s === 'B' || s === 'E' ? 'Middle seat' : 'Not middle seat';
+//   console.log(isMiddle);
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+console.log(airlane.toLowerCase());
+console.log(airlane.toUpperCase());
+
+//fix capitalization in name
+
+let passenger = 'jOnAS';
+// passenger = passenger[0].toUpperCase() + passenger.toLowerCase().slice(1);
+// console.log(passenger);
+
+const fixCapitalization = name => {
+  return name[0].toUpperCase() + name.toLowerCase().slice(1);
+};
+
+console.log(fixCapitalization(passenger));
+
+// Comparing emails
+
+// const fixEmail = email => {
+//   let correctEmail = '';
+//   for (const l of email) {
+//     if (typeof l === 'string') correctEmail += l;
+//   }
+//   return correctEmail.replaceAll(' ', '').toLowerCase();
+// };
+
+const fixEmail = email => {
+  return email.toLowerCase().trim();
+};
+
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.Io \n';
+
+const compareEmails = (email, loginEmail) => {
+  return email === fixEmail(loginEmail) ? 'Login' : 'Wrong email';
+};
+
+//
+
+console.log(compareEmails(email, loginEmail));
+
+// Replacing
+const priceGB = '288,97£';
+let priceUS = '';
+
+priceUS = priceGB.replace('£', '$').replace(',', '.');
+
+console.log(priceUS);
+
+// Booleans
+const planeA = 'Airbus A320neo';
+console.log(planeA.includes('A320'));
+console.log(planeA.includes('sada'));
+console.log(planeA.startsWith('A320'));
+console.log(planeA.startsWith('320'));
+
+if (planeA.startsWith('Airbus') && planeA.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family!');
 }
+
+// Practice exercise
+const blackListOfItems = ['knife', 'gun', 'cocaine'];
+const checkBaggage = items => {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log("You can't go with this on a plane");
+  } else {
+    console.log('Welcome, welcome');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('I have a socks, some food and a camera');
+checkBaggage('I have a snacks, some water and a gun for protection');
