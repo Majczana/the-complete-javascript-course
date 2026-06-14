@@ -303,23 +303,23 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const italianFoods = new Set([
-  'pasta',
-  'gnocchi',
-  'tomatoes',
-  'olive oil',
-  'garlic',
-  'basil',
-]);
+// const italianFoods = new Set([
+//   'pasta',
+//   'gnocchi',
+//   'tomatoes',
+//   'olive oil',
+//   'garlic',
+//   'basil',
+// ]);
 
-const mexicanFoods = new Set([
-  'tortillas',
-  'beans',
-  'rice',
-  'tomatoes',
-  'avocado',
-  'garlic',
-]);
+// const mexicanFoods = new Set([
+//   'tortillas',
+//   'beans',
+//   'rice',
+//   'tomatoes',
+//   'avocado',
+//   'garlic',
+// ]);
 
 // const weekdays = ['pon', 'wt', 'śr', 'czw', 'pią', 'sob', 'nied'];
 
@@ -623,6 +623,219 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
+// //zadanie 1
+// const [players1, players2] = game.players;
+
+// console.log(game.players);
+// //zadanie2
+// const [gk, ...fieldPlayers] = players1;
+
+// console.log(gk, fieldPlayers);
+// //zadanie3
+
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// //zadanie 4The team with the lower odd is more likely to win. Print to the console which
+
+// const playerFinals = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(playerFinals);
+// //Zadanie5
+// console.log(game);
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
+
+// //zadanie6
+// const printGoals = (...players) => {
+//   for (let i = 0; i < players.length; i++) {
+//     console.log(players[i]);``
+//   }
+//   console.log(players.length);
+// };
+// printGoals(...game.scored);
+
+// //zadanie7
+
+// team1 < team2 && console.log(game.team1);
+// team2 < team1 && console.log(game.team2);
+
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${player}`);
+// }
+
+// let sum = 0;
+// for (const i of Object.values(game.odds)) {
+//   sum += i;
+// }
+// console.log(sum / Object.values(game.odds).length);
+
+// for (const [team, average] of Object.entries(game.odds)) {
+//   game[team]
+//     ? console.log(`Odd of victory ${game[team]}: ${average}`)
+//     : console.log(`Odd of draw: ${average}`);
+// }
+// console.log('--------------------------------');
+// const scorers = {};
+
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+
+// // Methods
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exists');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
+
+// // Array
+
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'jonas@gmail.com',
+//     phone: '573567643',
+//   },
+// ];
+// console.log(users[0]?.name ?? 'There is no user with this name');
+// console.log(users[1]?.name ?? 'There is no user with this name');
+
+// const orderSet = new Set([
+//   'pasta',
+//   'pizza',
+//   'pizza',
+//   'rissoto',
+//   'pasta',
+//   'pizza',
+// ]);
+
+// console.log(orderSet);
+// console.log(new Set('Jonas'));
+
+// console.log(orderSet.size);
+// console.log(orderSet.has('pizza'));
+// console.log(orderSet.has('bread'));
+// orderSet.add('Garlic Bread');
+// orderSet.add('Garlic Bread');
+// orderSet.delete('rissoto');
+// // orderSet.clear();
+// console.log(orderSet);
+
+// for (const order of orderSet) console.log(order);
+
+// // Example
+
+// const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+
+// const staffSet = [...new Set(staff)];
+// console.log(staffSet);
+// console.log(new Set(['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter']));
+
+// console.log(new Set('filipmajewski').size); // unique
+// console.log('filipmajewski'.length); // all
+
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+// const commonFoods = italianFoods.intersection(mexicanFoods);
+// console.log(commonFoods);
+// console.log(`Intersections`, commonFoods);
+// console.log(...[commonFoods]);
+
+// const italianMexicanFusion = italianFoods.union(mexicanFoods);
+// console.log(italianFoods);
+
+// const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+// console.log(uniqueItalianFoods);
+
+// const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+// console.log(uniqueMexicanFoods);
+
+// const uniqueItalianAndMexicanFoods =
+//   italianFoods.symmetricDifference(mexicanFoods);
+// console.log(uniqueItalianAndMexicanFoods);
+
+// console.log(italianFoods.isDisjointFrom(mexicanFoods));
+
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// console.log(rest.set(2, 'Lisbon, Portugal'));
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open :)')
+//   .set(false, 'We are close :(');
+
+// console.log(rest.get('categories'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// // Czy restauracja jest otwarta ?
+// // Mało czytelne
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// // console.log(rest.size);
+// // rest.clear();
+// const arr = [1, 2];
+// console.log(rest.size);
+// rest.set(arr, 'Test');
+// console.log(rest.get(arr));
+// rest.set(document.querySelector('h1', 'Heading'));
+// console.log(rest);
+
+// const question = new Map([
+//   ['question', 'What is the best programing language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Python'],
+//   [4, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct!'],
+//   [false, 'Try again!'],
+// ]);
+
+// // console.log(question);
+// // console.log(openingHours);
+// // const openingHoursMap = new Map(Object.entries(openingHours));
+// // console.log(openingHoursMap);
+// // Quiz App
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+// const answer = 3;
+// answer === question.get('correct')
+//   ? console.log(question.get(true))
+//   : console.log(question.get(false));
+
+// console.log(question.get(answer === question.get('correct')));
+
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -663,85 +876,34 @@ const game = {
     team2: 6.5,
   },
 };
-// //zadanie 1
-// const [players1, players2] = game.players;
 
-// console.log(game.players);
-// //zadanie2
-// const [gk, ...fieldPlayers] = players1;
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
 
-// console.log(gk, fieldPlayers);
-// //zadanie3
+// 1
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+// 2
+gameEvents.delete(64);
+console.log(gameEvents);
+// 3
+// const time = [...gameEvents.keys()].pop(); // Trik
+const eventsAverage = 90 / gameEvents.size;
+console.log(`An event happened, on avarage, every ${eventsAverage} minutes `);
 
-// const allPlayers = [...players1, ...players2];
-// console.log(allPlayers);
-
-// //zadanie 4The team with the lower odd is more likely to win. Print to the console which
-
-// const playerFinals = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-// console.log(playerFinals);
-// //Zadanie5
-// console.log(game);
-// const {
-//   odds: { team1, x: draw, team2 },
-// } = game;
-// console.log(team1, draw, team2);
-
-// //zadanie6
-// const printGoals = (...players) => {
-//   for (let i = 0; i < players.length; i++) {
-//     console.log(players[i]);``
-//   }
-//   console.log(players.length);
-// };
-// printGoals(...game.scored);
-
-// //zadanie7
-
-// team1 < team2 && console.log(game.team1);
-// team2 < team1 && console.log(game.team2);
-
-for (const [i, player] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${player}`);
+// 4
+for (const [time, event] of gameEvents) {
+  const half = time <= 45 ? 'FIRST HALF' : 'SECOND HALF';
+  console.log(`[${half}] ${time}: ${event}`);
 }
-
-let sum = 0;
-for (const i of Object.values(game.odds)) {
-  sum += i;
-}
-console.log(sum / Object.values(game.odds).length);
-
-for (const [team, average] of Object.entries(game.odds)) {
-  game[team]
-    ? console.log(`Odd of victory ${game[team]}: ${average}`)
-    : console.log(`Odd of draw: ${average}`);
-}
-console.log('--------------------------------');
-const scorers = {};
-
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);
-
-// for (const day of days) {
-//   const open = restaurant.openingHours[day]?.open ?? 'closed';
-//   console.log(`On ${day} we open at ${open}`);
-// }
-
-// // Methods
-
-// console.log(restaurant.order?.(0, 1) ?? 'Method does not exists');
-// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
-
-// // Array
-
-// const users = [
-//   {
-//     name: 'Jonas',
-//     email: 'jonas@gmail.com',
-//     phone: '573567643',
-//   },
-// ];
-// console.log(users[0]?.name ?? 'There is no user with this name');
-// console.log(users[1]?.name ?? 'There is no user with this name');
