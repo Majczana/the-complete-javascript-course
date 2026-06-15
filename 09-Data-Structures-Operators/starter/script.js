@@ -937,20 +937,20 @@ const plane = 'A320';
 // checkMiddleSeat('23C');
 // checkMiddleSeat('3E');
 
-console.log(airlane.toLowerCase());
-console.log(airlane.toUpperCase());
+// console.log(airlane.toLowerCase());
+// console.log(airlane.toUpperCase());
 
-//fix capitalization in name
+// //fix capitalization in name
 
-let passenger = 'jOnAS';
-// passenger = passenger[0].toUpperCase() + passenger.toLowerCase().slice(1);
-// console.log(passenger);
+// let passenger = 'jOnAS';
+// // passenger = passenger[0].toUpperCase() + passenger.toLowerCase().slice(1);
+// // console.log(passenger);
 
-const fixCapitalization = name => {
-  return name[0].toUpperCase() + name.toLowerCase().slice(1);
-};
+// const fixCapitalization = name => {
+//   return name[0].toUpperCase() + name.toLowerCase().slice(1);
+// };
 
-console.log(fixCapitalization(passenger));
+// console.log(fixCapitalization(passenger));
 
 // Comparing emails
 
@@ -962,51 +962,129 @@ console.log(fixCapitalization(passenger));
 //   return correctEmail.replaceAll(' ', '').toLowerCase();
 // };
 
-const fixEmail = email => {
-  return email.toLowerCase().trim();
-};
+// const fixEmail = email => {
+//   return email.toLowerCase().trim();
+// };
 
-const email = 'hello@jonas.io';
-const loginEmail = '   Hello@Jonas.Io \n';
+// const email = 'hello@jonas.io';
+// const loginEmail = '   Hello@Jonas.Io \n';
 
-const compareEmails = (email, loginEmail) => {
-  return email === fixEmail(loginEmail) ? 'Login' : 'Wrong email';
-};
+// const compareEmails = (email, loginEmail) => {
+//   return email === fixEmail(loginEmail) ? 'Login' : 'Wrong email';
+// };
 
-//
+// //
 
-console.log(compareEmails(email, loginEmail));
+// console.log(compareEmails(email, loginEmail));
 
-// Replacing
-const priceGB = '288,97£';
-let priceUS = '';
+// // Replacing
+// const priceGB = '288,97£';
+// let priceUS = '';
 
-priceUS = priceGB.replace('£', '$').replace(',', '.');
+// priceUS = priceGB.replace('£', '$').replace(',', '.');
 
-console.log(priceUS);
+// console.log(priceUS);
 
-// Booleans
-const planeA = 'Airbus A320neo';
-console.log(planeA.includes('A320'));
-console.log(planeA.includes('sada'));
-console.log(planeA.startsWith('A320'));
-console.log(planeA.startsWith('320'));
+// // Booleans
+// const planeA = 'Airbus A320neo';
+// console.log(planeA.includes('A320'));
+// console.log(planeA.includes('sada'));
+// console.log(planeA.startsWith('A320'));
+// console.log(planeA.startsWith('320'));
 
-if (planeA.startsWith('Airbus') && planeA.endsWith('neo')) {
-  console.log('Part of the NEW Airbus family!');
-}
+// if (planeA.startsWith('Airbus') && planeA.endsWith('neo')) {
+//   console.log('Part of the NEW Airbus family!');
+// }
 
-// Practice exercise
-const blackListOfItems = ['knife', 'gun', 'cocaine'];
-const checkBaggage = items => {
-  const baggage = items.toLowerCase();
-  if (baggage.includes('knife') || baggage.includes('gun')) {
-    console.log("You can't go with this on a plane");
-  } else {
-    console.log('Welcome, welcome');
+// // Practice exercise
+// const blackListOfItems = ['knife', 'gun', 'cocaine'];
+// const checkBaggage = items => {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log("You can't go with this on a plane");
+//   } else {
+//     console.log('Welcome, welcome');
+//   }
+// };
+
+// checkBaggage('I have a laptop, some Food and a pocket Knife');
+// checkBaggage('I have a socks, some food and a camera');
+// checkBaggage('I have a snacks, some water and a gun for protection');
+
+// Split and join
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Filip Majewski'.split(' '));
+// const [firstName, lastName] = 'Filip Majewski'.split(' ');
+// console.log(firstName, lastName);
+
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+
+// console.log(newName);
+
+// const capitalizeName = name => {
+//   const names = name.split(' ');
+//   const nameUpper = [];
+
+//   for (const n of names) {
+//     nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(nameUpper.join(' '));
+// };
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('jonas schmedtmann');
+
+// const siema = 'test';
+
+// // Padding
+
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '>').padEnd(35, '<'));
+// console.log('Filip'.padStart(20, '>').padEnd(35, '<'));
+
+// const maskCreditCard = number => {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   const maskNumber = last.padStart(str.length, '*');
+//   console.log(number);
+//   console.log(maskNumber);
+// };
+
+// maskCreditCard(123456789123456789);
+
+// // Repeat
+// const message2 = 'Bad weather... All Departues Delayed';
+// console.log(message2.repeat(5));
+
+// const planesInLine = n =>
+//   console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+
+// planesInLine(6);
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const textArea = document.querySelector('textarea');
+const button = document.querySelector('button');
+
+button.addEventListener('click', function () {
+  const pobranyText = textArea.value;
+  console.log(converToCamelCase(pobranyText));
+});
+
+const converToCamelCase = inputText => {
+  const splitText = inputText.split('\n');
+  const allOutput = [];
+  let i = 0;
+  for (const text of splitText) {
+    i++;
+    let sentence = text.trim().toLowerCase();
+    const index = sentence.indexOf('_') + 1;
+    sentence =
+      sentence.slice(0, index) +
+      sentence[index].toUpperCase() +
+      sentence.slice(index + 1, sentence.length);
+    sentence = sentence.replace('_', '');
+    console.log(`${sentence.padEnd(20)}${'✅'.repeat(i)}`);
   }
 };
-
-checkBaggage('I have a laptop, some Food and a pocket Knife');
-checkBaggage('I have a socks, some food and a camera');
-checkBaggage('I have a snacks, some water and a gun for protection');
