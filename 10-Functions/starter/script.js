@@ -78,30 +78,125 @@
 
 // ['Filip', 'Alicja', 'Błażej', 'Ola'].forEach(high5);
 
-const greet = greeting => {
-  return function (name) {
-    return function (times) {
-      console.log(`${greeting} ${name} ${times}`);
-    };
-  };
-};
+// const greet = greeting => {
+//   return function (name) {
+//     return function (times) {
+//       console.log(`${greeting} ${name} ${times}`);
+//     };
+//   };
+// };
 
-const greeterHey = greet('Hey');
-const greeterHeyTime = greet('Elo')('Błażej');
+// const greeterHey = greet('Hey');
+// const greeterHeyTime = greet('Elo')('Błażej');
 
-greeterHey('Filip');
-greet('Hello')('Alicja')('5');
-greeterHeyTime('dzisiaj');
+// greeterHey('Filip');
+// greet('Hello')('Alicja')('5');
+// greeterHeyTime('dzisiaj');
 
-const greetArrow = greetingArrow => nameArrow => timesArrow => {
-  console.log(`${greetingArrow} ${nameArrow}, ${timesArrow}`);
-};
+// const greetArrow = greetingArrow => nameArrow => timesArrow => {
+//   console.log(`${greetingArrow} ${nameArrow}, ${timesArrow}`);
+// };
 
-greetArrow('Simano')('Wojtek')('12');
-const greetHeyTimeArrow = greetArrow('Siemaneczko')('Marysia');
+// greetArrow('Simano')('Wojtek')('12');
+// const greetHeyTimeArrow = greetArrow('Siemaneczko')('Marysia');
 
-greetHeyTimeArrow('1525213');
+// greetHeyTimeArrow('1525213');
 
-const greetingHeyArrow = greetArrow('no elo');
+// const greetingHeyArrow = greetArrow('no elo');
 
-greetingHeyArrow('Bogdan')('99');
+// greetingHeyArrow('Bogdan')('99');
+
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   booking: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
+//     );
+//     this.booking.push({ flight: `${this.iataCode}${flightNum}`, name });
+//     console.log(this.booking);
+//   },
+// };
+
+// lufthansa.book(239, 'Filip Majewski');
+// lufthansa.book(365, 'Alicja Patora');
+
+// const book = lufthansa.book;
+
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   booking: [],
+// };
+
+// // Tak to nie działa
+// // book(23, 'Marcin Ząbkowski');
+
+// book.call(eurowings, 23, 'Marcin Ząbkowski');
+// console.log(eurowings);
+
+// book.call(lufthansa, 12, 'Maciej Szcześniak');
+// book.call(eurowings, 15, 'Wojtek Maliński');
+// book.call(eurowings, 53, 'Roman Bartnicki');
+
+// const flightData = [583, 'George Cooper'];
+// // book.apply(eurowings, flightData);
+// // console.log(eurowings);
+
+// // book.apply(lufthansa, flightData);
+// // console.log(lufthansa);
+
+// book.call(eurowings, ...flightData); // call w tym przypadku robi to samo co apply. Tylko apply w modern js nikt nie używa. Call z '...' jest czytelniejszy.
+// console.log(eurowings);
+
+// // Bind method
+// // book.call(eurowings, 23, 'Marcin Ząbkowski');
+// console.log('---------Bind method---------');
+// const bookEW = book.bind(eurowings);
+// const bookLH = book.bind(lufthansa);
+// bookEW(23, 'Steven Williams');
+// bookLH(45, 'Alicja Patora');
+
+// const bookEW23 = book.bind(eurowings, 23);
+
+// bookEW23('Piotr Kanapka');
+// bookEW23('Gabriel Drzazga');
+
+// console.log('--------With Event Listeners--------');
+// // With Event Listeners
+// lufthansa.planes = 300;
+// lufthansa.buyPlane = function () {
+//   console.log(this);
+
+//   this.planes++;
+//   console.log(this.planes);
+// };
+
+// document
+//   .querySelector('.buy')
+//   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVat = addTax.bind(null, 0.23);
+// // const addVat = value => value + value * 0.23;
+
+// console.log(addVat(50));
+// console.log(addVat(100));
+// console.log(addVat(111));
+
+// const addTax = rate => {
+//   return value => {
+//     return value + value * rate;
+//   };
+// };
+
+// const addVat = addTax(0.23);
+// const addPit = addTax(0.12);
+
+// console.log(addVat(500));
+// console.log(addPit(500));
