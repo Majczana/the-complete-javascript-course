@@ -203,40 +203,75 @@
 
 // Coding Challenge #2
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-  registerNewAnswer() {
-    const userAnswer = Number(
-      prompt(`${this.question}\n${this.options.join('\n')}`),
-    );
-    if (userAnswer >= 0 && userAnswer <= 3) {
-      this.answers[userAnswer]++;
-      this.displayResults();
-    } else {
-      console.log('Wybór spoza zakresu');
-    }
-  },
-  displayResults(type = 'array') {
-    if (type === 'array') {
-      console.log(this.answers);
-    }
-    if (type === 'string') {
-      console.log(`Poll results are ${this.answers.join(', ')}`);
-    }
-  },
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section!
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     const userAnswer = Number(
+//       prompt(`${this.question}\n${this.options.join('\n')}`),
+//     );
+//     if (userAnswer >= 0 && userAnswer <= 3) {
+//       this.answers[userAnswer]++;
+//       this.displayResults();
+//     } else {
+//       console.log('Wybór spoza zakresu');
+//     }
+//   },
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     }
+//     if (type === 'string') {
+//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//     }
+//   },
+// };
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// const testDataPoll = [1, 5, 2, 0];
+// const testDataPoll2 = [0, 1, 5, 2];
+
+// poll.displayResults.call({ answers: testDataPoll2 });
+// poll.displayResults.call({ answers: testDataPoll2 }, 'string');
+
+// poll.displayResults.call({ answers: testDataPoll });
+// poll.displayResults.call({ answers: testDataPoll }, 'string');
+
+const runOnce = () => {
+  console.log('this will never run again');
 };
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+runOnce();
 
-const testDataPoll = [1, 5, 2, 0];
-const testDataPoll2 = [0, 1, 5, 2];
+// IIFE
+(function () {
+  console.log('this will never run again');
+  const isPrivate = 23;
+})();
+// console.log(isPrivate);
+(() => console.log('this will never run again'))();
 
-poll.displayResults.call({ answers: testDataPoll2 });
-poll.displayResults.call({ answers: testDataPoll2 }, 'string');
+{
+  const isPrivate = 23;
+}
 
-poll.displayResults.call({ answers: testDataPoll });
-poll.displayResults.call({ answers: testDataPoll }, 'string');
+// console.log(isPrivate); //Nei działa
+
+const secureBooking = () => {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(passengerCount);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
