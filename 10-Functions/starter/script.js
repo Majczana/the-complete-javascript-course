@@ -241,37 +241,96 @@
 // poll.displayResults.call({ answers: testDataPoll });
 // poll.displayResults.call({ answers: testDataPoll }, 'string');
 
-const runOnce = () => {
-  console.log('this will never run again');
-};
-runOnce();
+// const runOnce = () => {
+//   console.log('this will never run again');
+// };
+// runOnce();
 
-// IIFE
-(function () {
-  console.log('this will never run again');
-  const isPrivate = 23;
-})();
-// console.log(isPrivate);
-(() => console.log('this will never run again'))();
+// // IIFE
+// (function () {
+//   console.log('this will never run again');
+//   const isPrivate = 23;
+// })();
+// // console.log(isPrivate);
+// (() => console.log('this will never run again'))();
 
-{
-  const isPrivate = 23;
-}
+// {
+//   const isPrivate = 23;
+// }
 
-// console.log(isPrivate); //Nei działa
+// // console.log(isPrivate); //Nei działa
 
-const secureBooking = () => {
-  let passengerCount = 0;
+// const secureBooking = () => {
+//   let passengerCount = 0;
 
-  return function () {
-    passengerCount++;
-    console.log(passengerCount);
-  };
-};
+//   return function () {
+//     passengerCount++;
+//     console.log(passengerCount);
+//   };
+// };
 
-const booker = secureBooking();
-booker();
-booker();
-booker();
+// const booker = secureBooking();
+// booker();
+// booker();
+// booker();
 
-console.dir(booker);
+// console.dir(booker);
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// // g();
+// // f();
+
+// const h = function () {
+//   const b = 777;
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+
+// g();
+// f();
+// console.dir(f);
+// h();
+// f();
+// console.dir(f);
+
+// const boardPassengers = (n, wait) => {
+//   const perGroup = n / 3;
+
+//   console.log(`Will start boarding in ${wait} seconds`);
+
+//   setTimeout(() => {
+//     console.log(`We are now boarding all ${n} passengers`);
+//     console.log(`There are 3 groups, each with ${perGroup} passengers`);
+//   }, wait * 1000);
+// };
+
+// boardPassengers(180, 5);
+
+// (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
+
+//   const body = document.querySelector('body');
+//   body.addEventListener('click', function () {
+//     header.style.color = 'blue';
+//   });
+// })();
+
+// function a() {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
+//   const body = document.querySelector('body');
+//   body.addEventListener('click', function () {
+//     header.style.color = 'blue';
+//   });
+// }
+
+// a();
