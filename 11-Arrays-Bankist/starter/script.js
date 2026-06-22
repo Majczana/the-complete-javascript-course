@@ -65,49 +65,100 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
+// map
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// set
+
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 
-//SLICE
-console.log('---slice---');
-console.log(arr.slice(2));
-console.log(arr.slice(2, 4));
-console.log(arr.slice(-2));
-console.log(arr.slice(1, -2));
-console.log(arr.slice());
-console.log([...arr]);
-console.log(arr);
+// //SLICE
+// console.log('---slice---');
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-2));
+// console.log(arr.slice(1, -2));
+// console.log(arr.slice());
+// console.log([...arr]);
+// console.log(arr);
 
-// SPLICE
-console.log('---splice---');
-// arr.splice(2);
-// arr.splice(-1);
-arr.splice(1, 2);
+// // SPLICE
+// console.log('---splice---');
+// // arr.splice(2);
+// // arr.splice(-1);
+// arr.splice(1, 2);
 
-console.log(arr);
+// console.log(arr);
 
-//REVERSE
-console.log('---reverse---');
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse());
-console.log(arr2);
+// //REVERSE
+// console.log('---reverse---');
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// console.log(arr2.reverse());
+// console.log(arr2);
 
-// CONCAT
-const letters = arr.concat(arr2);
+// // CONCAT
+// const letters = arr.concat(arr2);
 
-console.log(letters);
+// console.log(letters);
 
-// JOIN
-console.log(letters.join('-'));
-console.log(letters.join(' ')); // a b c d e f g h i j
-console.log(letters.join('')); // abcdefghij
+// // JOIN
+// console.log(letters.join('-'));
+// console.log(letters.join(' ')); // a b c d e f g h i j
+// console.log(letters.join('')); // abcdefghij
+
+// const arr = [23, 11, 64];
+
+// console.log(arr[0]);
+// console.log(arr.at(0));
+
+// // Getting the last element
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice(-1)[0]);
+// console.log(arr.at(-1));
+
+// console.log('jonas'.at(0));
+// console.log('jonas'.at(-1));
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const [i, money] of movements.entries()) {
+//   const status = money > 0 ? 'deposited' : 'withdrew';
+//   console.log(
+//     `Transaction number: ${i + 1} \n You ${status}: ${Math.abs(money)}`,
+//   );
+// }
+
+// console.log('------------FOREACH--------------');
+
+// movements.forEach(function (money, i, arr) {
+//   const status = money > 0 ? 'deposited' : 'withdrew';
+//   console.log(
+//     `Transaction number: ${i + 1} \n You ${status}: ${Math.abs(money)}`,
+//   );
+// });
+
+// // Break cannot be done for foreach loop.
+
+// // 0: function(200)
+// // 1: function(450)
+// // 2: function(400)
