@@ -61,32 +61,92 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovments = movements => {
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+        <div class="movements__value">${mov}€</div>
+      </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovments(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
+
+// const user = 'Steven Thomas Williams'; //stw
+// const username = user
+//   .toLowerCase()
+//   .split(' ')
+//   .map(name => name[0])
+//   .join('');
+// console.log(
+//   accounts.map(function (acc) {
+//     console.log(acc);
+//   }),
+// );
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-// map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// // map
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
 
 // set
 
-const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
-console.log(currenciesUnique);
+// const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+// console.log(currenciesUnique);
 
-currenciesUnique.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
+// currenciesUnique.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(mov => mov * eurToUsd);
+// // return mov * eurToUsd;
+
+// console.log(movements);
+// console.log(movementsUSD);
+
+// const newArrayMovement = [];
+// for (const mov of movements) {
+//   newArrayMovement.push(mov * eurToUsd);
+// }
+// console.log(newArrayMovement);
+
+// const movementsDescriptions = movements.map(
+//   (mov, i) => `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'}`,
+// );
+
+// console.log(movementsDescriptions);
 /////////////////////////////////////////////////
 
 // let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -162,3 +222,84 @@ currenciesUnique.forEach(function (value, key, map) {
 // // 0: function(200)
 // // 1: function(450)
 // // 2: function(400)
+
+/*
+Working With Arrays
+
+Coding Challenge #1
+
+Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
+about their dog's age, and stored the data into an array (one array for each). For
+now, they are just interested in knowing whether a dog is an adult or a puppy.
+A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
+old.
+
+Your tasks:
+
+Create a function 'checkDogs', which accepts 2 arrays of dog's ages
+('dogsJulia' and 'dogsKate'), and does the following things:
+1. Julia found out that the owners of the first and the last two dogs actually have
+cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+ages from that copied array (because it's a bad practice to mutate function
+parameters)
+2. Create an array with both Julia's (corrected) and Kate's data
+3. For each remaining dog, log to the console whether it's an adult ("Dog number 1
+is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+🐶
+")
+4. Run the function for both test datasets
+Test data:
+§ Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+§ Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+
+Hints: Use tools from all lectures in this section so far 😉
+*/
+
+// const data1 = [
+//   [3, 5, 2, 12, 7],
+//   [4, 1, 15, 8, 3],
+// ];
+// const data2 = [
+//   [9, 16, 6, 8, 3],
+//   [10, 5, 6, 1, 4],
+// ];
+
+// function checkDogs(dogsJulia, dogsKate) {
+//   const dogsJuliaCorrected = dogsJulia.slice(1, -2);
+
+//   const allDogs = dogsJuliaCorrected.concat(dogsKate);
+
+//   const isAdult = age => age >= 3;
+
+//   allDogs.forEach(function (age, i) {
+//     console.log(
+//       isAdult(age)
+//         ? `Dog number ${i + 1} is an adult, and is ${age} years old`
+//         : `Dog number ${i + 1} is still a puppy 🐶`,
+//     );
+//   });
+// }
+// console.log('----- zestaw 1 -----');
+// checkDogs(...data1);
+// console.log('----- zestaw 2 -----');
+// checkDogs(...data2);
+
+// function checkDogs(allDogs) {
+//   allDogs.forEach(function (age, number) {
+//     if (isAdult(age)) {
+//       console.log(
+//         `Dog number ${number + 1} is an adult, and is ${age} years old`,
+//       );
+//     } else {
+//       console.log(`Dog number ${number + 1} is still a puppy 🐶`);
+//     }
+//   });
+// }
+
+// function checkDogs(allDogs) {
+//   allDogs.forEach(function (age, i) {
+//     if (isAdult(age))
+//       console.log(`Dog number ${i + 1} is an adult, and is ${age} years old`);
+//     if (!isAdult(age)) console.log(`Dog number ${i + 1} is still a puppy 🐶`);
+//   });
+// }
