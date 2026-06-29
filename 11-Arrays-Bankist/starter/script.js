@@ -128,21 +128,48 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// const deposits = movements.filter(function (mov) {
-//   return mov > 0;
-// });
+// // accumulator -> SNOWBALL
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`iteretion ${i}: ${acc} + ${cur}`);
+//   return acc + cur;
+// }, 0);
 
-const deposits = movements.filter(mov => mov > 0);
-console.log(movements);
-console.log(deposits);
+// let acc = 0;
+// for (const mov of movements) acc += mov;
 
-const depositsNew = [];
-for (const mov of movements) if (mov > 0) depositsNew.push(mov);
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
 
-console.log(depositsNew);
+calcDisplayBalance(movements);
 
-const withdrawals = movements.filter(mov => mov < 0);
-console.log(withdrawals);
+// Maximum value
+const balanceMax = movements.reduce((acc, cur) => {
+  if (cur > acc) acc = cur;
+  return acc;
+}, movements[0]);
+
+console.log(balanceMax);
+
+// console.log(acc);
+// // const deposits = movements.filter(function (mov) {
+// //   return mov > 0;
+// // });
+
+// const deposits = movements.filter(mov => mov > 0);
+// console.log(movements);
+// console.log(deposits);
+
+// const depositsNew = [];
+// for (const mov of movements) if (mov > 0) depositsNew.push(mov);
+
+// console.log(depositsNew);
+
+// const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
 // const eurToUsd = 1.1;
 
 // const movementsUSD = movements.map(mov => mov * eurToUsd);
