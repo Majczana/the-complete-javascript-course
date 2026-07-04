@@ -415,25 +415,25 @@ Test data:
 
 GOOD LUCK �
 
-*/
+// */
 
-const dogAges = [16, 2, 4, 1, 15, 8, 3];
+// const dogAges = [16, 2, 4, 1, 15, 8, 3];
 
-// Challange #3
+// // Challange #3
 
-const calcAvarageHumanAge = ages => {
-  return ages
-    .map(age => {
-      if (age <= 2) return 2 * age;
-      if (age > 2) return 16 + age * 4;
-    })
-    .filter(age => age > 18)
-    .reduce((acc, curr, i, arr) => acc + curr / arr.length, 0);
-};
+// const calcAvarageHumanAge = ages => {
+//   return ages
+//     .map(age => {
+//       if (age <= 2) return 2 * age;
+//       if (age > 2) return 16 + age * 4;
+//     })
+//     .filter(age => age > 18)
+//     .reduce((acc, curr, i, arr) => acc + curr / arr.length, 0);
+// };
 
-const humanAgesFromDogs = calcAvarageHumanAge(dogAges);
+// const humanAgesFromDogs = calcAvarageHumanAge(dogAges);
 
-console.log(humanAgesFromDogs);
+// console.log(humanAgesFromDogs);
 
 // // const dogAges = [5, 2, 4, 1, 15, 8, 3];
 
@@ -464,3 +464,17 @@ console.log(humanAgesFromDogs);
 // console.log(humanAgeAVG(humanAgeAdult(humanAge)));
 
 // const avarage = adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+// const firstWithDrawal = movements.find(mov => mov < 0);
+// console.log(movements);
+// console.log(firstWithDrawal)
+
+// console.log(accounts)
+
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis')
+// console.log(account)
+
+for (const acc of accounts) {
+  if (acc.owner === 'Jessica Davis') console.log(acc.owner)
+  
+}
