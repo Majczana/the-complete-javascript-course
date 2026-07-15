@@ -129,6 +129,22 @@ const updateUI = acc => {
 
 let currentAccount;
 
+const lastLargeMovement = acc => {
+  const movements = acc.movements;
+  if (movements && movements.length > 0) {
+    const lastLargeIndex = movements.findLastIndex(mov => mov > 2000);
+
+    if (lastLargeIndex !== -1) {
+      const movementAgo = movements.length - lastLargeIndex;
+      console.log(
+        `Your latest large movement was ${movementAgo} movements ago.`,
+      );
+    } else {
+      console.log('You dont have last large movement');
+    }
+  }
+};
+
 btnLogin.addEventListener('click', function (e) {
   usernameCreator(accounts);
   // prevent form from submiting
@@ -147,9 +163,9 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
     updateUI(currentAccount);
+    lastLargeMovement(currentAccount);
   }
 });
-
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
@@ -191,6 +207,10 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
 });
+
+console.log(movements);
+const lastwithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastwithdrawal);
 
 // const createUsernames = function (accs) {
 //   accs.forEach(function (acc) {
