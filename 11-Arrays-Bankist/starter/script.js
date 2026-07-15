@@ -170,6 +170,28 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    inputClosePin.value = inputCloseUsername.value = '';
+    updateUI(currentAccount);
+    console.log('Delete');
+
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username,
+    );
+    console.log(index);
+
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+  }
+});
+
 // const createUsernames = function (accs) {
 //   accs.forEach(function (acc) {
 //     acc.username = acc.owner
