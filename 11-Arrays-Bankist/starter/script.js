@@ -186,6 +186,17 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  inputLoanAmount.value = '';
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  }
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -208,9 +219,9 @@ btnClose.addEventListener('click', function (e) {
   }
 });
 
-console.log(movements);
-const lastwithdrawal = movements.findLast(mov => mov < 0);
-console.log(lastwithdrawal);
+// console.log(movements);
+// const lastwithdrawal = movements.findLast(mov => mov < 0);
+// console.log(lastwithdrawal);
 
 // const createUsernames = function (accs) {
 //   accs.forEach(function (acc) {
@@ -577,3 +588,18 @@ GOOD LUCK �
 // for (const acc of accounts) {
 //   if (acc.owner === 'Jessica Davis') console.log(acc.owner);
 // }
+console.log(movements);
+console.log(movements.includes(-130));
+console.log(movements.some(mov => mov > 0));
+
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements);
+console.log(account4.movements.every(mov => mov > 0));
+
+//separate callbacks
+
+const deposite = mov => mov > 0;
+
+console.log(movements.some(deposite));
+console.log(movements.every(deposite));
+console.log(account4.movements.every(deposite));
