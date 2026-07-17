@@ -588,18 +588,103 @@ GOOD LUCK �
 // for (const acc of accounts) {
 //   if (acc.owner === 'Jessica Davis') console.log(acc.owner);
 // }
-console.log(movements);
-console.log(movements.includes(-130));
-console.log(movements.some(mov => mov > 0));
+// console.log(movements);
+// console.log(movements.includes(-130));
+// console.log(movements.some(mov => mov > 0));
 
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements);
-console.log(account4.movements.every(mov => mov > 0));
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements);
+// console.log(account4.movements.every(mov => mov > 0));
 
-//separate callbacks
+// //separate callbacks
 
-const deposite = mov => mov > 0;
+// const deposite = mov => mov > 0;
 
-console.log(movements.some(deposite));
-console.log(movements.every(deposite));
-console.log(account4.movements.every(deposite));
+// console.log(movements.some(deposite));
+// console.log(movements.every(deposite));
+// console.log(account4.movements.every(deposite));
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+// console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+
+// console.log(arrDeep.flat(2));
+
+// console.log(accounts);
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance2);
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+const ownersOfDogsEatingToMuch = [];
+const ownersOfDogsEatingToLittle = [];
+const dogsEatingOkay = [];
+
+dogs.forEach(dog => {
+  const recommendedFood = dog.weight ** 0.75 * 28;
+  dog.curFood = dog.curFood;
+  dog.recFood = recommendedFood;
+
+  const margines = (10 / 100) * Math.abs(dog.recFood);
+  const minFood = dog.recFood - margines;
+  const maxFood = dog.recFood + margines;
+
+  if (dog.curFood > maxFood) {
+    ownersOfDogsEatingToMuch.push(dog.owners);
+  }
+  if (dog.curFood < minFood) {
+    ownersOfDogsEatingToLittle.push(dog.owners);
+  }
+  dog.curFood === dog.recFood ? console.log(true) : console.log(false);
+
+  if (dog.curFood >= minFood && dog.curFood <= maxFood) {
+    console.log(true);
+    dogsEatingOkay.push(dog);
+  } else {
+    console.log(false);
+  }
+});
+
+// const dogsCopy = dogs.reduce(dogs);
+
+console.log(dogsEatingOkay);
+console.log(ownersOfDogsEatingToMuch.flat());
+console.log(ownersOfDogsEatingToLittle.flat());
+
+const isSarahDogsEatGood = function (dogsArray) {
+  const sarahDogs = dogsArray.find(dog => dog.owners.includes('Sarah'));
+  if (sarahDogs.curFood > sarahDogs.recFood) {
+    console.log('Sarah dog eat to much');
+  } else {
+    console.log('Sarah dog eat to low');
+  }
+};
+
+isSarahDogsEatGood(dogs);
+const dogCopy = dogs.slice();
+dogCopy.sort((dog1, dog2) => dog1.recFood - dog2.recFood);
+console.log(dogs);
+console.log(dogCopy);
