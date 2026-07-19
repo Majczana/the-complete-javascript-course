@@ -632,59 +632,164 @@ GOOD LUCK �
 //   .reduce((acc, mov) => acc + mov, 0);
 // console.log(overalBalance2);
 
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+//   { weight: 8, curFood: 200, owners: ['Matilda'] },
+//   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+//   { weight: 32, curFood: 340, owners: ['Michael'] },
+// ];
+
+// const ownersOfDogsEatingToMuch = [];
+// const ownersOfDogsEatingToLittle = [];
+// const dogsEatingOkay = [];
+
+// dogs.forEach(dog => {
+//   const recommendedFood = dog.weight ** 0.75 * 28;
+//   dog.curFood = dog.curFood;
+//   dog.recFood = recommendedFood;
+
+//   const margines = (10 / 100) * Math.abs(dog.recFood);
+//   const minFood = dog.recFood - margines;
+//   const maxFood = dog.recFood + margines;
+
+//   if (dog.curFood > maxFood) {
+//     ownersOfDogsEatingToMuch.push(dog.owners);
+//   }
+//   if (dog.curFood < minFood) {
+//     ownersOfDogsEatingToLittle.push(dog.owners);
+//   }
+//   dog.curFood === dog.recFood ? console.log(true) : console.log(false);
+
+//   if (dog.curFood >= minFood && dog.curFood <= maxFood) {
+//     console.log(true);
+//     dogsEatingOkay.push(dog);
+//   } else {
+//     console.log(false);
+//   }
+// });
+
+// // const dogsCopy = dogs.reduce(dogs);
+
+// console.log(dogsEatingOkay);
+// console.log(ownersOfDogsEatingToMuch.flat());
+// console.log(ownersOfDogsEatingToLittle.flat());
+
+// const isSarahDogsEatGood = function (dogsArray) {
+//   const sarahDogs = dogsArray.find(dog => dog.owners.includes('Sarah'));
+//   if (sarahDogs.curFood > sarahDogs.recFood) {
+//     console.log('Sarah dog eat to much');
+//   } else {
+//     console.log('Sarah dog eat to low');
+//   }
+// };
+
+// isSarahDogsEatGood(dogs);
+// const dogCopy = dogs.slice();
+// dogCopy.sort((dog1, dog2) => dog1.recFood - dog2.recFood);
+// console.log(dogs);
+// console.log(dogCopy);
+
+const breeds = [
+  {
+    breed: 'German Shepherd',
+    averageWeight: 32,
+    activities: ['fetch', 'swimming'],
+  },
+  {
+    breed: 'Dalmatian',
+    averageWeight: 24,
+    activities: ['running', 'fetch', 'agility'],
+  },
+  {
+    breed: 'Labrador',
+    averageWeight: 28,
+    activities: ['swimming', 'fetch'],
+  },
+  {
+    breed: 'Beagle',
+    averageWeight: 12,
+    activities: ['digging', 'fetch'],
+  },
+  {
+    breed: 'Husky',
+    averageWeight: 26,
+    activities: ['running', 'agility', 'swimming'],
+  },
+  {
+    breed: 'Bulldog',
+    averageWeight: 24,
+    activities: ['digging', 'sleeping'],
+  },
+  {
+    breed: 'Poodle',
+    averageWeight: 22,
+    activities: ['agility', 'swimming', 'fetch'],
+  },
+  {
+    breed: 'Border Collie',
+    averageWeight: 20,
+    activities: ['agility', 'running', 'fetch'],
+  },
+  {
+    breed: 'Chihuahua',
+    averageWeight: 3,
+    activities: ['digging', 'running'],
+  },
+  {
+    breed: 'Great Dane',
+    averageWeight: 65,
+    activities: ['sleeping', 'fetch'],
+  },
 ];
 
-const ownersOfDogsEatingToMuch = [];
-const ownersOfDogsEatingToLittle = [];
-const dogsEatingOkay = [];
+const huskyWeight = breeds.find(dog => dog.breed === 'Husky').averageWeight;
+console.log(huskyWeight);
 
-dogs.forEach(dog => {
-  const recommendedFood = dog.weight ** 0.75 * 28;
-  dog.curFood = dog.curFood;
-  dog.recFood = recommendedFood;
+const dogBothActivites = breeds.find(
+  breed =>
+    breed.activities.includes('fetch') && breed.activities.includes('running'),
+).breed;
+console.log(dogBothActivites);
 
-  const margines = (10 / 100) * Math.abs(dog.recFood);
-  const minFood = dog.recFood - margines;
-  const maxFood = dog.recFood + margines;
+const allActivites = breeds.flatMap(breed => breed.activities);
+console.log(allActivites);
 
-  if (dog.curFood > maxFood) {
-    ownersOfDogsEatingToMuch.push(dog.owners);
-  }
-  if (dog.curFood < minFood) {
-    ownersOfDogsEatingToLittle.push(dog.owners);
-  }
-  dog.curFood === dog.recFood ? console.log(true) : console.log(false);
+// breeds.forEach(breed => {
+//   allActivites.push(breed.activities);
+// });
+// console.log(allActivites.flat());
 
-  if (dog.curFood >= minFood && dog.curFood <= maxFood) {
-    console.log(true);
-    dogsEatingOkay.push(dog);
-  } else {
-    console.log(false);
-  }
-});
+const uniqueActivites = [...new Set(allActivites.flat())];
+console.log(uniqueActivites);
 
-// const dogsCopy = dogs.reduce(dogs);
+const swimingAdjacent = [
+  ...new Set(
+    breeds
+      .filter(breed => breed.activities.includes('swimming'))
+      .flatMap(breed => breed.activities)
+      .filter(activity => activity !== 'swimming'),
+  ),
+];
 
-console.log(dogsEatingOkay);
-console.log(ownersOfDogsEatingToMuch.flat());
-console.log(ownersOfDogsEatingToLittle.flat());
+console.log(swimingAdjacent);
 
-const isSarahDogsEatGood = function (dogsArray) {
-  const sarahDogs = dogsArray.find(dog => dog.owners.includes('Sarah'));
-  if (sarahDogs.curFood > sarahDogs.recFood) {
-    console.log('Sarah dog eat to much');
-  } else {
-    console.log('Sarah dog eat to low');
-  }
-};
+const isAllWeightAvarage = breeds.every(breed => breed.averageWeight >= 10);
+console.log(isAllWeightAvarage);
 
-isSarahDogsEatGood(dogs);
-const dogCopy = dogs.slice();
-dogCopy.sort((dog1, dog2) => dog1.recFood - dog2.recFood);
-console.log(dogs);
-console.log(dogCopy);
+const isActiveBreed = breeds.some(breed => breed.activities.length >= 3);
+console.log(isActiveBreed);
+
+console.log(breeds[4].activities.length);
+
+const maxWeight = Math.max(
+  ...breeds
+    .filter(breed => breed.activities.includes('fetch'))
+    .map(breed => breed.averageWeight),
+);
+
+const heaviestBreed = breeds
+  .filter(breed => breed.activities.includes('fetch'))
+  .find(breed => breed.averageWeight === maxWeight);
+
+console.log(maxWeight);
+console.log(heaviestBreed.averageWeight);
