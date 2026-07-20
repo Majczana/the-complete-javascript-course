@@ -689,107 +689,116 @@ GOOD LUCK �
 // console.log(dogs);
 // console.log(dogCopy);
 
-const breeds = [
-  {
-    breed: 'German Shepherd',
-    averageWeight: 32,
-    activities: ['fetch', 'swimming'],
-  },
-  {
-    breed: 'Dalmatian',
-    averageWeight: 24,
-    activities: ['running', 'fetch', 'agility'],
-  },
-  {
-    breed: 'Labrador',
-    averageWeight: 28,
-    activities: ['swimming', 'fetch'],
-  },
-  {
-    breed: 'Beagle',
-    averageWeight: 12,
-    activities: ['digging', 'fetch'],
-  },
-  {
-    breed: 'Husky',
-    averageWeight: 26,
-    activities: ['running', 'agility', 'swimming'],
-  },
-  {
-    breed: 'Bulldog',
-    averageWeight: 24,
-    activities: ['digging', 'sleeping'],
-  },
-  {
-    breed: 'Poodle',
-    averageWeight: 22,
-    activities: ['agility', 'swimming', 'fetch'],
-  },
-  {
-    breed: 'Border Collie',
-    averageWeight: 20,
-    activities: ['agility', 'running', 'fetch'],
-  },
-  {
-    breed: 'Chihuahua',
-    averageWeight: 3,
-    activities: ['digging', 'running'],
-  },
-  {
-    breed: 'Great Dane',
-    averageWeight: 65,
-    activities: ['sleeping', 'fetch'],
-  },
-];
+// const breeds = [
+//   {
+//     breed: 'German Shepherd',
+//     averageWeight: 32,
+//     activities: ['fetch', 'swimming'],
+//   },
+//   {
+//     breed: 'Dalmatian',
+//     averageWeight: 24,
+//     activities: ['running', 'fetch', 'agility'],
+//   },
+//   {
+//     breed: 'Labrador',
+//     averageWeight: 28,
+//     activities: ['swimming', 'fetch'],
+//   },
+//   {
+//     breed: 'Beagle',
+//     averageWeight: 12,
+//     activities: ['digging', 'fetch'],
+//   },
+//   {
+//     breed: 'Husky',
+//     averageWeight: 26,
+//     activities: ['running', 'agility', 'swimming'],
+//   },
+//   {
+//     breed: 'Bulldog',
+//     averageWeight: 24,
+//     activities: ['digging', 'sleeping'],
+//   },
+//   {
+//     breed: 'Poodle',
+//     averageWeight: 22,
+//     activities: ['agility', 'swimming', 'fetch'],
+//   },
+//   {
+//     breed: 'Border Collie',
+//     averageWeight: 20,
+//     activities: ['agility', 'running', 'fetch'],
+//   },
+//   {
+//     breed: 'Chihuahua',
+//     averageWeight: 3,
+//     activities: ['digging', 'running'],
+//   },
+//   {
+//     breed: 'Great Dane',
+//     averageWeight: 65,
+//     activities: ['sleeping', 'fetch'],
+//   },
+// ];
 
-const huskyWeight = breeds.find(dog => dog.breed === 'Husky').averageWeight;
-console.log(huskyWeight);
+// const huskyWeight = breeds.find(dog => dog.breed === 'Husky').averageWeight;
+// console.log(huskyWeight);
 
-const dogBothActivites = breeds.find(
-  breed =>
-    breed.activities.includes('fetch') && breed.activities.includes('running'),
-).breed;
-console.log(dogBothActivites);
+// const dogBothActivites = breeds.find(
+//   breed =>
+//     breed.activities.includes('fetch') && breed.activities.includes('running'),
+// ).breed;
+// console.log(dogBothActivites);
 
-const allActivites = breeds.flatMap(breed => breed.activities);
-console.log(allActivites);
+// const allActivites = breeds.flatMap(breed => breed.activities);
+// console.log(allActivites);
 
-// breeds.forEach(breed => {
-//   allActivites.push(breed.activities);
-// });
-// console.log(allActivites.flat());
+// // breeds.forEach(breed => {
+// //   allActivites.push(breed.activities);
+// // });
+// // console.log(allActivites.flat());
 
-const uniqueActivites = [...new Set(allActivites.flat())];
-console.log(uniqueActivites);
+// const uniqueActivites = [...new Set(allActivites.flat())];
+// console.log(uniqueActivites);
 
-const swimingAdjacent = [
-  ...new Set(
-    breeds
-      .filter(breed => breed.activities.includes('swimming'))
-      .flatMap(breed => breed.activities)
-      .filter(activity => activity !== 'swimming'),
-  ),
-];
+// const swimingAdjacent = [
+//   ...new Set(
+//     breeds
+//       .filter(breed => breed.activities.includes('swimming'))
+//       .flatMap(breed => breed.activities)
+//       .filter(activity => activity !== 'swimming'),
+//   ),
+// ];
 
-console.log(swimingAdjacent);
+// console.log(swimingAdjacent);
 
-const isAllWeightAvarage = breeds.every(breed => breed.averageWeight >= 10);
-console.log(isAllWeightAvarage);
+// const isAllWeightAvarage = breeds.every(breed => breed.averageWeight >= 10);
+// console.log(isAllWeightAvarage);
 
-const isActiveBreed = breeds.some(breed => breed.activities.length >= 3);
-console.log(isActiveBreed);
+// const isActiveBreed = breeds.some(breed => breed.activities.length >= 3);
+// console.log(isActiveBreed);
 
-console.log(breeds[4].activities.length);
+// console.log(breeds[4].activities.length);
 
-const maxWeight = Math.max(
-  ...breeds
-    .filter(breed => breed.activities.includes('fetch'))
-    .map(breed => breed.averageWeight),
-);
+// const maxWeight = Math.max(
+//   ...breeds
+//     .filter(breed => breed.activities.includes('fetch'))
+//     .map(breed => breed.averageWeight),
+// );
 
-const heaviestBreed = breeds
-  .filter(breed => breed.activities.includes('fetch'))
-  .find(breed => breed.averageWeight === maxWeight);
+// const heaviestBreed = breeds
+//   .filter(breed => breed.activities.includes('fetch'))
+//   .find(breed => breed.averageWeight === maxWeight);
 
-console.log(maxWeight);
-console.log(heaviestBreed.averageWeight);
+// console.log(maxWeight);
+// console.log(heaviestBreed.averageWeight);
+
+// string
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+// Numbers
+const numbers = [1, 4, 6, 7, 8, 4, 3, 1, 4, 6, -1, -5, -7, -4, -1, 0];
+console.log(numbers.sort((a, b) => a - b));
+console.log(movements.sort((a, b) => a - b));
