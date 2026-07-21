@@ -795,10 +795,10 @@ GOOD LUCK �
 // console.log(heaviestBreed.averageWeight);
 
 // string
-const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
 
-// Numbers
-const numbers = [1, 4, 6, 7, 8, 4, 3, 1, 4, 6, -1, -5, -7, -4, -1, 0];
-console.log(numbers.sort((a, b) => a - b));
-console.log(movements.sort((a, b) => a - b));
+// // Numbers
+// const numbers = [1, 4, 6, 7, 8, 4, 3, 1, 4, 6, -1, -5, -7, -4, -1, 0];
+// console.log(numbers.sort((a, b) => a - b));
+// console.log(movements.sort((a, b) => a - b));
