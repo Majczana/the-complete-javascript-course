@@ -101,9 +101,12 @@ const usernameCreator = accounts => {
   });
 };
 
-const displayMovments = movements => {
+const displayMovements = (movements, sort = false) => {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -118,7 +121,7 @@ const displayMovments = movements => {
 };
 
 const updateUI = acc => {
-  displayMovments(acc.movements);
+  displayMovements(acc.movements);
   // Display balance
   calcDisplayBalance(acc);
   // Display summary
@@ -218,6 +221,19 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
 });
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
+console.log(movements);
+
+const groupeMovements = Object.groupBy(movements, movement =>
+  movement > 0 ? 'deposits' : 'withdrawals',
+);
+console.log(groupeMovements);
 
 // console.log(movements);
 // const lastwithdrawal = movements.findLast(mov => mov < 0);
