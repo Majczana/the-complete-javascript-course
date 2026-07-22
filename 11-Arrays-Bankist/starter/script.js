@@ -235,6 +235,7 @@ const groupeMovements = Object.groupBy(movements, movement =>
 );
 console.log(groupeMovements);
 
+const groupByActivity = Object.groupBy(accounts, account => {});
 // console.log(movements);
 // const lastwithdrawal = movements.findLast(mov => mov < 0);
 // console.log(lastwithdrawal);
