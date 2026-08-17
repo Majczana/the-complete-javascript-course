@@ -842,44 +842,58 @@ GOOD LUCK �
 // More ways of creating and filling arrays
 
 // Metody tworzenia tablic które już znam
-console.log([1, 2, 3, 4, 5, 6, 7]);
-console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+// console.log([1, 2, 3, 4, 5, 6, 7]);
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7));
 
-// Tworzenie pustej tablicy o konkretnej długości
-const x = new Array(7);
-console.log(x);
-x.map(() => 5); // nic nie robi
+// // Tworzenie pustej tablicy o konkretnej długości
+// const x = new Array(7);
+// console.log(x);
+// x.map(() => 5); // nic nie robi
 
-// Nowa metoda wypełniania pustego array
-x.fill(1, 3, 5); // po przecinku wpisujemy od kiedy chcemy wypełnić. Działa podobnie do slice()
-console.log(x);
+// // Nowa metoda wypełniania pustego array
+// x.fill(1, 3, 5); // po przecinku wpisujemy od kiedy chcemy wypełnić. Działa podobnie do slice()
+// console.log(x);
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
+// const arr = [1, 2, 3, 4, 5, 6, 7];
 
-arr.fill(23, 4, 6); //od 4 do 6 wypełniło liczbą 23
-console.log(arr);
+// arr.fill(23, 4, 6); //od 4 do 6 wypełniło liczbą 23
+// console.log(arr);
 
-// Array.from
-const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// // Array.from
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-const z = Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(z);
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-const oneHundretRandomDiceRolls = () => {
-  const getRandomInt = () => Math.floor(Math.random() * 6) + 1;
-  const array = Array.from({ length: 100 }, () => getRandomInt());
-  return array;
-};
+// const oneHundretRandomDiceRolls = () => {
+//   const getRandomInt = () => Math.floor(Math.random() * 6) + 1;
+//   const array = Array.from({ length: 100 }, () => getRandomInt());
+//   return array;
+// };
 
-console.log(oneHundretRandomDiceRolls());
+// console.log(oneHundretRandomDiceRolls());
 
-labelBalance.addEventListener('click', function () {
-  const movementsUI = Array.from(
-    document.querySelectorAll('.movements__value'),
-    el => Number(el.textContent.replace('€', '')),
-  );
-  console.log(movementsUI);
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent.replace('€', '')),
+//   );
+//   console.log(movementsUI);
 
-  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
-});
+//   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+// });
+
+// Non Destructive Alternatives
+
+// console.log(movements);
+// const reversedMov = movements.toReversed();
+// console.log(reversedMov);
+// console.log(movements);
+
+console.log(movements);
+movements[1] = 2000;
+console.log(movements);
+const newMovement = movements.with(1, 4999);
+console.log(movements);
+console.log(newMovement);
