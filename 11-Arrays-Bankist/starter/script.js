@@ -891,9 +891,16 @@ GOOD LUCK �
 // console.log(reversedMov);
 // console.log(movements);
 
-console.log(movements);
-movements[1] = 2000;
-console.log(movements);
-const newMovement = movements.with(1, 4999);
-console.log(movements);
-console.log(newMovement);
+// console.log(movements);
+// movements[1] = 2000;
+// console.log(movements);
+// const newMovement = movements.with(1, 4999);
+// console.log(movements);
+// console.log(newMovement);
+
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
